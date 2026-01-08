@@ -4,7 +4,7 @@ This is a servo-based nozzle wiper for the AD5M Pro. Looking at the non-Pro vers
 
 The AD5M and AD5M Pro printers do not provide ample overtravel or an area to place a nozzle wiper that does not obstruct the print space.
 
-Some people compromise and just stick a nozzle wiper pad right on the bed, or print an adapter that allows them to snap it to the bed. While we should not have to compromise on build-plate space, there is another issue with this- this is only sufficient for prints where the nozzle is only automatically wiped at the beginning, or for short prints. Where the bed rises, this becomes an issue for tall prints where we need to periodically wipe the nozzle mid print, such as when using PETG.
+Some people compromise and just stick a nozzle brush right on the bed, or print an adapter that allows them to snap it to the bed. While we should not have to compromise on build-plate space, there is another issue with this- this is only sufficient for prints where the nozzle is only automatically wiped at the beginning, or for short prints. Where the bed rises, this becomes an issue for tall prints where we need to periodically wipe the nozzle mid print, such as when using PETG.
 
 This solution addresses this by placing the servo and wiper in a top corner, minimizing the chance of useful build space being obstructed. Since it is positionally locked on the Z-axis, minimal bed movement is required to wipe the nozzle (only the amount necessary for head travel, or enough the clear the servo horn if printing in that corner.)
 
@@ -255,5 +255,6 @@ And to retract the wiper:
 ```
 set_servo serv0=nozzle_wiper angle=0
 ```
+
 
 The original concept I came across on Printables shows the wiper going back and forth in small motions under the nozzle. I would recommend against this, as we should avoid overdrawing from the servo- it runs on the 5V regulator on the mainboard, and this does not have a particularly high current rating, as it's intended for USB VBUS, not general power. It's doubtful that permanent damage will occur, but you may experience brownouts if you overuse it. Instead, consider moving the nozzle in small movements over the wiper, as the hardware is more suited to this. This section, as well as a few more will be extended as I acquire/identify better mounting hardware and write macros.
