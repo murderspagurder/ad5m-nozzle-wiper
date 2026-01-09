@@ -23,7 +23,7 @@ This could also likely be done with some of the specialized Klipper extension bo
 - [ ] Make `/dev/ttyACM0` more specific
 - [ ] Get proper silicone nozzle brush
 - [ ] Identify and document proper mounting hardware (bolt sizes)
-- [ ] Write nozzle printing macro
+- [ ] Write nozzle wiping macro
 - [ ] Write macro to perform nozzle wipe every *n* layers
 
 ## Prerequisites
@@ -258,3 +258,4 @@ set_servo serv0=nozzle_wiper angle=0
 
 
 The original concept I came across on Printables shows the wiper going back and forth in small motions under the nozzle. I would recommend against this, as we should avoid overdrawing from the servo- it runs on the 5V regulator on the mainboard, and this does not have a particularly high current rating, as it's intended for USB VBUS, not general power. It's doubtful that permanent damage will occur, but you may experience brownouts if you overuse it. Instead, consider moving the nozzle in small movements over the wiper, as the hardware is more suited to this. This section, as well as a few more will be extended as I acquire/identify better mounting hardware and write macros.
+
